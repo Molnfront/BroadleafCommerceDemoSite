@@ -55,7 +55,9 @@
     </repositories>
     <properties>
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+        <blc.version>1.6.0-SNAPSHOT</blc.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <broadleafCoreDirectory></broadleafCoreDirectory>
     </properties>
     <build>
         <pluginManagement>
@@ -260,14 +262,14 @@
             <dependency>
                 <groupId>org.broadleafcommerce</groupId>
                 <artifactId>broadleaf-framework-web</artifactId>
-                <version>1.5.0-RC2-SNAPSHOT</version>
+                <version>${blc.version}</version>
                 <type>jar</type>
                 <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.broadleafcommerce</groupId>
                 <artifactId>broadleaf-usps</artifactId>
-                <version>1.5.0-RC2-SNAPSHOT</version>
+                <version>${blc.version}</version>
                 <type>jar</type>
                 <scope>compile</scope>
             </dependency>
@@ -275,14 +277,14 @@
                 <groupId>org.broadleafcommerce</groupId>
                 <artifactId>broadleaf-profile</artifactId>
                 <classifier>sources</classifier>
-                <version>1.5.0-RC2-SNAPSHOT</version>
+                <version>${blc.version}</version>
                 <type>jar</type>
                 <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.broadleafcommerce</groupId>
                 <artifactId>broadleaf-admin-module</artifactId>
-                <version>1.5.0-RC2-SNAPSHOT</version>
+                <version>${blc.version}</version>
                 <type>jar</type>
                 <scope>compile</scope>
             </dependency>
@@ -290,14 +292,14 @@
                 <groupId>org.broadleafcommerce</groupId>
                 <artifactId>broadleaf-admin-module</artifactId>
                 <classifier>sources</classifier>
-                <version>1.5.0-RC2-SNAPSHOT</version>
+                <version>${blc.version}</version>
                 <type>jar</type>
                 <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.broadleafcommerce</groupId>
                 <artifactId>broadleaf-contentmanagement-module</artifactId>
-                <version>1.5.0-RC2-SNAPSHOT</version>
+                <version>${blc.version}</version>
                 <type>jar</type>
                 <scope>compile</scope>
             </dependency>
@@ -305,14 +307,14 @@
                 <groupId>org.broadleafcommerce</groupId>
                 <artifactId>broadleaf-contentmanagement-module</artifactId>
                 <classifier>sources</classifier>
-                <version>1.5.0-RC2-SNAPSHOT</version>
+                <version>${blc.version}</version>
                 <type>jar</type>
                 <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.broadleafcommerce</groupId>
                 <artifactId>broadleaf-open-admin-platform</artifactId>
-                <version>1.5.0-RC2-SNAPSHOT</version>
+                <version>${blc.version}</version>
                 <type>jar</type>
                 <scope>compile</scope>
             </dependency>
@@ -320,7 +322,7 @@
                 <groupId>org.broadleafcommerce</groupId>
                 <artifactId>broadleaf-open-admin-platform</artifactId>
                 <classifier>sources</classifier>
-                <version>1.5.0-RC2-SNAPSHOT</version>
+                <version>${blc.version}</version>
                 <type>jar</type>
                 <scope>compile</scope>
             </dependency>
