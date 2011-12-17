@@ -102,6 +102,13 @@
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
 
+    <!--  ServletRequestListener for Spring -->
+    <listener>
+      <listener-class>
+          org.springframework.web.context.request.RequestContextListener
+      </listener-class>
+    </listener>
+
 	<listener>
 		<listener-class>org.broadleafcommerce.profile.web.extensibility.MergeContextLoaderListener</listener-class>
 	</listener>
@@ -109,7 +116,7 @@
 	<listener>
         <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
     </listener>
-	
+
 	<servlet>
         <servlet-name>demo</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
