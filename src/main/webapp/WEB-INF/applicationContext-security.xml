@@ -214,7 +214,7 @@
 	
 	<bean id="broadleafAdminAuthenticationFailureHandler"
 		class="org.broadleafcommerce.core.security.BroadleafAuthenticationFailureHandler">
-		<constructor-arg value="/login.jsp?login_error=true" />
+		<constructor-arg value="/blcadmin/login?login_error=true" />
 		<property name="redirectStrategy" ref="redirectStrategy" />
 	</bean>
 
@@ -242,7 +242,7 @@
 		<property name="authenticationEntryPoint">
 			<bean
 				class="org.springframework.security.web.authentication.AuthenticationProcessingFilterEntryPoint">
-				<property name="loginFormUrl" value="/login.jsp" />
+				<property name="loginFormUrl" value="/blcadmin/login" />
 			</bean>
 		</property>
 	</bean>
@@ -290,8 +290,8 @@
 		<property name="enableGroups" value="false" />
 		<property name="enableAuthorities" value="true" />
 		<property name="usersByUsernameQuery"
-			value="SELECT login AS username, password, 'true' as enabled FROM BLC_ADMIN_USER 
-		WHERE login = ?" />
+					value="SELECT login AS username, password, active_status_flag as enabled FROM BLC_ADMIN_USER
+				WHERE login = ?" />
 		<property name="authoritiesByUsernameQuery"
 			value="SELECT 
             DISTINCT au.login AS username, ap.name AS authority
