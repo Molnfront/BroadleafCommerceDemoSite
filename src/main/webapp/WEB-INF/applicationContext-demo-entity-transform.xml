@@ -44,10 +44,10 @@
     see persistence-demo-entity-transform.xml for an example of how to configure which classes are included in the transformation.
      -->
     
-    <context:load-time-weaver weaver-class="org.broadleafcommerce.profile.extensibility.jpa.BroadleafLoadTimeWeaver"/>
+    <context:load-time-weaver weaver-class="org.broadleafcommerce.common.extensibility.jpa.BroadleafLoadTimeWeaver"/>
 
     <bean id="blPersistenceUnitManager"
-          class="org.broadleafcommerce.profile.extensibility.jpa.MergePersistenceUnitManager">
+          class="org.broadleafcommerce.common.extensibility.jpa.MergePersistenceUnitManager">
         <property name="persistenceXmlLocations">
             <list>
                 <value>classpath*:/META-INF/persistence-demo-entity-transform.xml</value>
@@ -62,7 +62,7 @@
         <property name="defaultDataSource" ref="webDS"/>
         <property name="classTransformers">
             <list>
-            	<bean class="org.broadleafcommerce.profile.extensibility.jpa.convert.inheritance.SingleTableInheritanceClassTransformer" />
+            	<bean class="org.broadleafcommerce.common.extensibility.jpa.convert.inheritance.SingleTableInheritanceClassTransformer" />
             </list>
         </property>
     </bean>
@@ -75,7 +75,7 @@
 	</bean>
 	
 	<bean id="blCacheManager"
-          class="org.broadleafcommerce.profile.extensibility.cache.ehcache.MergeEhCacheManagerFactoryBean">
+          class="org.broadleafcommerce.common.extensibility.cache.ehcache.MergeEhCacheManagerFactoryBean">
         <property name="shared" value="true"/>
         <property name="configLocations">
             <list>

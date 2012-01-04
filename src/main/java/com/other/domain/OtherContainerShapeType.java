@@ -16,7 +16,7 @@
 
 package com.other.domain;
 
-import org.broadleafcommerce.profile.vendor.service.type.ContainerShapeType;
+import org.broadleafcommerce.common.vendor.service.type.ContainerShapeType;
 
 /**
  * An extendible enumeration of container shape types.
