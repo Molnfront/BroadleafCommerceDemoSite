@@ -136,14 +136,14 @@
 	</bean>
 
 	<bean id="springAuthenticationSuccessHandler"
-		class="org.broadleafcommerce.profile.web.core.security.BroadleafAuthenticationSuccessHandler">
+		class="org.broadleafcommerce.core.web.order.security.BroadleafAuthenticationSuccessHandler">
 		<property name="redirectStrategy" ref="redirectStrategy" />
 		<property name="defaultTargetUrl" value="/welcome.htm" />
 		<property name="alwaysUseDefaultTargetUrl" value="true" />
 	</bean>
 
 	<bean id="redirectStrategy"
-		class="org.broadleafcommerce.profile.web.core.security.LocalRedirectStrategy">
+		class="org.broadleafcommerce.common.security.LocalRedirectStrategy">
 		<property name="enforcePortMatch" value="true" />
 	</bean>
 
@@ -301,7 +301,7 @@
             LEFT OUTER JOIN BLC_ADMIN_ROLE_PERMISSION_XREF arpx ON ar.admin_role_id = arpx.admin_role_id
             LEFT OUTER JOIN BLC_ADMIN_PERMISSION ap ON arpx.admin_permission_id = ap.admin_permission_id
             LEFT OUTER JOIN BLC_ADMIN_USER_PERMISSION_XREF aupx ON au.admin_user_id = aupx.admin_user_id
-            LEFT OUTER JOIN BLC_ADMIN_PERMISSION ap ON aupx.admin_permission_id = ap.admin_permission_id
+            LEFT OUTER JOIN BLC_ADMIN_PERMISSION ap2 ON aupx.admin_permission_id = ap2.admin_permission_id
             WHERE au.login = ?" />
 	</bean>
 
