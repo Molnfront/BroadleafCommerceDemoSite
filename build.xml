@@ -17,6 +17,7 @@
             <arg value="-Pgwt"/>
 			<arg value="gwt:run"/>
             <arg value="-DbroadleafCoreDirectory=${broadleafCoreDirectory}"/>
+            <arg value="-DbroadleafWorkspaceDirectory=${broadleafWorkspaceDirectory}"/>
 			<arg value="-Dgwt.extraJvmArgs=-XX:MaxPermSize=256M -Xmx512M -Dlogs.dir=${logs.dir} -Dbuild.compiler=org.broadleafcommerce.openadmin.workaround.JDTCompiler15"/>
 		</artifact:mvn>
 	</target>
@@ -29,6 +30,7 @@
             <arg value="-Pgwt"/>
 			<arg value="gwt:debug"/>
             <arg value="-DbroadleafCoreDirectory=${broadleafCoreDirectory}"/>
+            <arg value="-DbroadleafWorkspaceDirectory=${broadleafWorkspaceDirectory}"/>
 			<arg value="-Dgwt.extraJvmArgs=-XX:MaxPermSize=256M -Xmx512M -Dlogs.dir=${logs.dir} -Dbuild.compiler=org.broadleafcommerce.openadmin.workaround.JDTCompiler15"/>
 		</artifact:mvn>
 	</target>
@@ -41,7 +43,8 @@
 			<arg value="-Pgwt"/>
             <arg value="gwt:debug"/>
             <arg value="-DbroadleafCoreDirectory=${broadleafCoreDirectory}"/>
-			<arg value="-Dgwt.extraJvmArgs=-XX:MaxPermSize=256M -Xmx512M -Drebel.root=${broadleafCoreDirectory} -Dlogs.dir=${logs.dir} -Dbuild.compiler=org.broadleafcommerce.openadmin.workaround.JDTCompiler15 -noverify -javaagent:${jrebel.path}"/>
+            <arg value="-DbroadleafWorkspaceDirectory=${broadleafWorkspaceDirectory}"/>
+			<arg value="-Dgwt.extraJvmArgs=-XX:MaxPermSize=256M -Xmx512M -Drebel.root=${broadleafWorkspaceDirectory} -Dlogs.dir=${logs.dir} -Dbuild.compiler=org.broadleafcommerce.openadmin.workaround.JDTCompiler15 -noverify -javaagent:${jrebel.path}"/>
 		</artifact:mvn>
 	</target>
 	
@@ -53,13 +56,14 @@
             <arg value="-Pgwt"/>
 			<arg value="gwt:debug"/>
             <arg value="-DbroadleafCoreDirectory=${broadleafCoreDirectory}"/>
+            <arg value="-DbroadleafWorkspaceDirectory=${broadleafWorkspaceDirectory}"/>
 			<arg value="-Dgwt.extraJvmArgs=-XX:MaxPermSize=256M -Xmx512M -Dlogs.dir=${logs.dir} -Dbuild.compiler=org.broadleafcommerce.openadmin.workaround.JDTCompiler15 -agentpath:${yourkit.agent.path}libyjpagent.jnilib=builtinprobes=none,delay=10000,sessionname=Jetty"/>
 		</artifact:mvn>
 	</target>
 	
 	<target name="jetty-demo" depends="start-db">
 		<delete dir="war/WEB-INF/lib"/>
-		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -XX:MaxPermSize=256M -Xmx512M">
+		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -DbroadleafWorkspaceDirectory=${broadleafWorkspaceDirectory} -XX:MaxPermSize=256M -Xmx512M">
 			<arg value="compile"/>
 			<arg value="war:exploded"/>
 			<arg value="jetty:run"/>
@@ -68,7 +72,7 @@
 	
 	<target name="jetty-debug" depends="start-db">
 		<delete dir="war/WEB-INF/lib"/>
-		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -XX:MaxPermSize=256M -Xmx512M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8001">
+		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -DbroadleafWorkspaceDirectory=${broadleafWorkspaceDirectory} -XX:MaxPermSize=256M -Xmx512M -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8001">
 			<arg value="compile"/>
 			<arg value="war:exploded"/>
 			<arg value="jetty:run"/>
@@ -77,7 +81,7 @@
 
     <target name="jetty-demo-jrebel">
 		<delete dir="war/WEB-INF/lib"/>
-		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -XX:MaxPermSize=256M -Xmx512M -Drebel.root=${broadleafCoreDirectory} -Dlogs.dir=${logs.dir} -noverify -javaagent:${jrebel.path}">
+		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -DbroadleafWorkspaceDirectory=${broadleafWorkspaceDirectory} -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -XX:MaxPermSize=256M -Xmx512M -Drebel.root=${broadleafWorkspaceDirectory} -Dlogs.dir=${logs.dir} -noverify -javaagent:${jrebel.path}">
 			<arg value="compile"/>
 			<arg value="war:exploded"/>
 			<arg value="jetty:run"/>
@@ -86,7 +90,7 @@
 	
 	<target name="jetty-demo-yourkit">
 		<delete dir="war/WEB-INF/lib"/>
-		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -XX:MaxPermSize=256M -Xmx512M -agentpath:${yourkit.agent.path}libyjpagent.jnilib=builtinprobes=none,delay=10000,sessionname=Jetty">
+		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -DbroadleafWorkspaceDirectory=${broadleafWorkspaceDirectory} -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -XX:MaxPermSize=256M -Xmx512M -agentpath:${yourkit.agent.path}libyjpagent.jnilib=builtinprobes=none,delay=10000,sessionname=Jetty">
 			<arg value="compile"/>
 			<arg value="war:exploded"/>
 			<arg value="jetty:run"/>
@@ -95,7 +99,7 @@
 
     <target name="jetty-demo-jrebel-yourkit">
 		<delete dir="war/WEB-INF/lib"/>
-		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -XX:MaxPermSize=256M -Xmx512M -Drebel.root=${broadleafCoreDirectory} -Dlogs.dir=${logs.dir} -noverify -javaagent:${jrebel.path} -agentpath:${yourkit.agent.path}libyjpagent.jnilib=builtinprobes=none,delay=10000,sessionname=Jetty">
+		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -DbroadleafWorkspaceDirectory=${broadleafWorkspaceDirectory} -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -XX:MaxPermSize=256M -Xmx512M -Drebel.root=${broadleafWorkspaceDirectory} -Dlogs.dir=${logs.dir} -noverify -javaagent:${jrebel.path} -agentpath:${yourkit.agent.path}libyjpagent.jnilib=builtinprobes=none,delay=10000,sessionname=Jetty">
 			<arg value="compile"/>
 			<arg value="war:exploded"/>
 			<arg value="jetty:run"/>
@@ -103,7 +107,7 @@
 	</target>
 	
 	<target name="jetty-stop">
-		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -XX:MaxPermSize=256M -Xmx512M">
+		<artifact:mvn mavenHome="${maven.home}" fork="true" jvmargs="-DbroadleafCoreDirectory=${broadleafCoreDirectory} -DbroadleafWorkspaceDirectory=${broadleafWorkspaceDirectory} -XX:MaxPermSize=256M -Xmx512M">
 			<arg value="jetty:stop"/>
 		</artifact:mvn>
 	</target>
