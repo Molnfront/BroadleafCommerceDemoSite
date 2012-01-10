@@ -516,6 +516,12 @@
                                             </directory>
                                             <targetPath>./</targetPath>
                                         </resource>
+                                        <resource>
+                                            <directory>
+                                                ${broadleafCoreDirectory}/common/src/main/resources
+                                            </directory>
+                                            <targetPath>./</targetPath>
+                                        </resource>
                                     </resources>
                                 </configuration>
                             </execution>
