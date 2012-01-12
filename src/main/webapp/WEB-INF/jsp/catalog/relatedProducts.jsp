@@ -7,8 +7,8 @@
 						<c:forEach var="item" items="${currentProduct.upSaleProducts}" varStatus="status">
 							<div class="relatedProd clearfix">
 								<div class="relatedProdImage">
-									<a href="<c:choose><c:when test="${!(fn:startsWith(item.relatedProduct.productMedia.small.url,'http')) && fn:startsWith(item.relatedProduct.productMedia.small.url,'/')}"><c:out value="${pageContext.request.contextPath}"/></c:when></c:choose>${item.relatedProduct.productMedia.small.url}" class="thickbox">
-										<img src="<c:choose><c:when test="${!(fn:startsWith(item.relatedProduct.productMedia.small.url,'http')) && fn:startsWith(item.relatedProduct.productMedia.small.url,'/')}"><c:out value="${pageContext.request.contextPath}"/></c:when></c:choose>${item.relatedProduct.productMedia.small.url}" width="80" />
+									<a href='<cms:url value="${product.productMedia.small.url}"/>' class="thickbox">
+										<img src='<cms:url value="${product.productMedia.small.url}"/>' width="80" />
 									</a>
 								</div> 
 								<div class="relatedProdText">
@@ -47,8 +47,8 @@
 						<c:forEach var="item" items="${currentProduct.crossSaleProducts}" varStatus="status">
 							<div class="relatedProd clearfix">
 								<div class="relatedProdImage">
-									<a href="<c:choose><c:when test="${!(fn:startsWith(item.relatedProduct.productMedia.small.url,'http')) && fn:startsWith(item.relatedProduct.productMedia.small.url,'/')}"><c:out value="${pageContext.request.contextPath}"/></c:when></c:choose>${item.relatedProduct.productMedia.small.url}" class="thickbox">
-										<img src="<c:choose><c:when test="${!(fn:startsWith(item.relatedProduct.productMedia.small.url,'http')) && fn:startsWith(item.relatedProduct.productMedia.small.url,'/')}"><c:out value="${pageContext.request.contextPath}"/></c:when></c:choose>${item.relatedProduct.productMedia.small.url}" width="80" />
+									<a href='<cms:url value="${product.productMedia.small.url}"/>' class="thickbox">
+										<img src='<cms:url value="${product.productMedia.small.url}"/>' width="80" />
 									</a>
 								</div> 
 								<div class="relatedProdText">

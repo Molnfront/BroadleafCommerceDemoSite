@@ -2,7 +2,7 @@
 <tiles:insertDefinition name="baseNoSide">
 		<tiles:putAttribute name="headContentAdditional">
 			<c:choose>
-				<c:when test="${BLC_PAGE eq null}">
+				<c:when test="${BLC_PAGE_DATA eq null}">
 					<script language="javascript" src="<c:out value="${pageContext.request.contextPath}"/>/org.broadleafcommerce.admin.demoAdmin/admin/tinymce/tiny_mce_popup.js"></script>
 					<script type="text/javascript" src="<c:out value="${pageContext.request.contextPath}"/>/org.broadleafcommerce.admin.demoAdmin/admin/tinymce/plugins/preview/jscripts/embed.js"></script>
 					<script type="text/javascript">
@@ -19,8 +19,8 @@
 	<tiles:putAttribute name="mainContent" type="string">
 	<div class="mainContentAreaFull" style="padding:8px;">
 	<div id="cmsContent">
-		<c:if test="${BLC_PAGE ne null}">
-			${BLC_PAGE.pageFields.body.value}
+		<c:if test="${BLC_PAGE_DATA ne null}">
+			${BLC_PAGE_DATA.body}
 		</c:if>
 	</div>
 	</div>

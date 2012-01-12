@@ -25,7 +25,7 @@
 			</c:choose>
 				<div class="span-2 column productResultsImage" align="center">
 					<a href="<c:out value="${pageContext.request.contextPath}"/>/${currentCategory.generatedUrl}?productId=${product.id}">
-						<img border="0" title="${product.name}" alt="${product.name}" src="<c:choose><c:when test="${!(fn:startsWith(product.productMedia.small.url,'http')) && fn:startsWith(product.productMedia.small.url,'/')}"><c:out value="${pageContext.request.contextPath}"/></c:when></c:choose>${product.productMedia.small.url}" width="75"/>
+						<img border="0" title="${product.name}" alt="${product.name}" src='<cms:url value="${product.productMedia.small.url}"/>' width="75"/>
 					</a>
 				</div>
 				<div class="span-6 column productResultsInfo">

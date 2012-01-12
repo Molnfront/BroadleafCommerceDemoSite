@@ -37,7 +37,7 @@
 								<c:out value="${product.name}"/>
 							</a><br>
 							<a href="<c:out value="${pageContext.request.contextPath}"/>/${currentCategory.generatedUrl}?productId=${product.id}">
-								<img border="0" src="<c:choose><c:when test="${!(fn:startsWith(product.productMedia.small.url,'http')) && fn:startsWith(product.productMedia.small.url,'/')}"><c:out value="${pageContext.request.contextPath}"/></c:when></c:choose>${product.productMedia.small.url}" width="75"/>
+								<img border="0" src='<cms:url value="${product.productMedia.small.url}"/>' width="75"/>
 							</a>
 						</div>	
 						<br/>

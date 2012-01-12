@@ -18,8 +18,9 @@
 			<div class="column productImage span-5">
 				<c:choose>
 					<c:when test="${!empty currentProduct.productMedia.large}">
-						<a href="<c:choose><c:when test="${!(fn:startsWith(currentProduct.productMedia.large.url,'http')) && fn:startsWith(currentProduct.productMedia.large.url,'/')}"><c:out value="${pageContext.request.contextPath}"/></c:when></c:choose>${currentProduct.productMedia.large.url}" class="thickbox">
-							<img src="<c:choose><c:when test="${!(fn:startsWith(currentProduct.productMedia.large.url,'http')) && fn:startsWith(currentProduct.productMedia.large.url,'/')}"><c:out value="${pageContext.request.contextPath}"/></c:when></c:choose>${currentProduct.productMedia.large.url}" width="150" />
+                        <cms:url value="${item.targetUrl}"/>
+						<a href='<cms:url value="${currentProduct.productMedia.large.url}"/>' class="thickbox">
+							<img src='<cms:url value="${currentProduct.productMedia.large.url}"/>' width="150" />
 							<p>View larger image</p>
 						</a>
 					</c:when>
