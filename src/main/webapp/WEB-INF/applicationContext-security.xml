@@ -119,7 +119,7 @@
 
 	<sec:jdbc-user-service data-source-ref="webDS"
 		id="blUserDetailsService"
-		users-by-username-query="SELECT USER_NAME,PASSWORD,TRUE FROM BLC_CUSTOMER WHERE USER_NAME=?"
+		users-by-username-query="SELECT USER_NAME,PASSWORD,1 as enabled FROM BLC_CUSTOMER WHERE USER_NAME=?"
 		authorities-by-username-query="SELECT c.USER_NAME,r.ROLE_NAME from BLC_CUSTOMER c 
 	                                      JOIN BLC_CUSTOMER_ROLE cr ON c.CUSTOMER_ID = cr.CUSTOMER_ID 
 	                                      JOIN BLC_ROLE r ON cr.ROLE_ID = r.ROLE_ID 
@@ -286,7 +286,7 @@
 		<property name="enableGroups" value="false" />
 		<property name="enableAuthorities" value="true" />
 		<property name="usersByUsernameQuery"
-			value="SELECT login AS username, password, 'true' as enabled FROM BLC_ADMIN_USER 
+			value="SELECT login AS username, password, 1 as enabled FROM BLC_ADMIN_USER
 		WHERE login = ?" />
 		<property name="authoritiesByUsernameQuery"
 			value="SELECT 
